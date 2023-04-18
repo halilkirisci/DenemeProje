@@ -1,0 +1,50 @@
+﻿@model DenemeProje.Web.Models.FormIslemModel
+
+@{
+    ViewData["Title"] = "FormIslem";
+}
+
+<h1>FormIslem</h1>
+
+<h4>FormIslemModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormIslem">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Adi" class="control-label"></label>
+                <input asp-for="Adi" class="form-control" />
+                <span asp-validation-for="Adi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soyadi" class="control-label"></label>
+                <input asp-for="Soyadi" class="form-control" />
+                <span asp-validation-for="Soyadi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dogum" class="control-label"></label>
+                <input asp-for="dogum" class="form-control" />
+                <span asp-validation-for="dogum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@if (Model!=null)
+{
+    <div>
+        Adi : @Model.Adi <br>
+        Soyadi : @Model.Soyadi <br>
+        dogum : @Model.dogum.ToString("dd.MM.yyyy")
+    </div>
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

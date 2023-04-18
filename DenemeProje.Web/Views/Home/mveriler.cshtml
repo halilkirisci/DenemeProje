@@ -1,0 +1,37 @@
+﻿@model DenemeProje.Web.Models.VeriModel
+
+@{
+    ViewData["Title"] = "mveriler";
+}
+
+<h1>mveriler</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Liste) {
+    <tr>
+        <td>
+            @foreach (var ite in item)
+            {
+                <span class="me-3 border-1">@ite</span>  
+            }
+        </td>
+    </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
